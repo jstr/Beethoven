@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "pitchy",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jstr/Pitchy",
+      "state" : {
+        "branch" : "update-spm",
+        "revision" : "d90b0aa6f285910ac170476e3ee9e96dd89cd87b"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -73,12 +73,12 @@ public final class PitchEngine {
 
     let audioSession = AVAudioSession.sharedInstance()
 
-    switch audioSession.recordPermission {
-    case AVAudioSession.RecordPermission.granted:
+    switch audioSession.recordPermission() {
+    case .granted:
       activate()
-    case AVAudioSession.RecordPermission.denied:
+    case .denied:
       DispatchQueue.main.async {
-        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+        if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
             } else {
@@ -86,7 +86,7 @@ public final class PitchEngine {
             }
         }
       }
-    case AVAudioSession.RecordPermission.undetermined:
+    case .undetermined:
       AVAudioSession.sharedInstance().requestRecordPermission { [weak self] granted  in
         guard let weakSelf = self else { return }
 
